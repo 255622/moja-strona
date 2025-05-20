@@ -1,0 +1,281 @@
+
+
+.navbar {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.navbar button {
+  background: #006c24;
+  border: none;
+  padding: 20px 78px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("a.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #000;
+}
+
+header, footer {
+  background-color: transparent;  /* brak koloru tła */
+  padding: 1rem;
+  color: white; /* tekst na biało, jeśli chcesz */
+}
+
+
+
+main {
+  padding: 0.5rem;
+  margin-top: 0.5rem; /* było 1rem – zmniejszamy */
+  text-align: center;
+}
+
+
+
+
+.title, h2, h1 {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.title {
+  font-size: 3.5rem;
+  margin-top: 0.5rem; /* dodaj to, jeśli nie ma */
+}
+
+
+
+.description, .form, .schedule, .gallery, .team-counter {
+  max-width: 700px;
+  margin: 2rem auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.schedule table {
+  width: 100%;
+  border-collapse: collapse; /* Zapobiega podwójnym odstępom między komórkami */
+  margin-top: 1rem; /* Dodaje przestrzeń między tabelą a nagłówkiem */
+}
+
+
+
+.checkbox-container label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin: 1px;
+  transform: scale(1.2);
+}
+
+
+.schedule th, .schedule td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd; /* Delikatna ramka wokół komórek */
+}
+
+.schedule th {
+  background-color: #065f46;
+  color: white;
+}
+
+.schedule td {
+  background-color: #f0f0f0;
+}
+
+.schedule tr:nth-child(even) td {
+  background-color: #e0e0e0; /* Ulepszony kontrast na naprzemiennych wierszach */
+}
+
+.form input, .form textarea {
+  display: block;
+  width: 98%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.image-gallery img {
+  width: 520px;
+  height: auto;
+  border-radius: 8px;
+}
+
+h2 {
+  display: inline-block; /* żeby tło obejmowało tylko tekst */
+  padding: 0.2rem 0.5rem; /* trochę przestrzeni wokół tekstu */
+  border-radius: 4px; /* opcjonalnie zaokrąglenie rogów */
+}
+
+.sponsors {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.sponsor-logo {
+  width: 80px;
+  height: auto;
+}
+
+footer {
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left, .footer-right {
+  flex: 1;
+}
+
+
+.footer-center {
+  text-align: center;
+  flex: 2;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 70%;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0a430a;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #cccccc;
+}
+
+.carousel {
+  position: relative;
+  width: 520px;
+  height: 320px; /* lub dopasuj do proporcji zdjęcia */
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.carousel-track {
+  display: flex;
+  width: calc(520px * 3); /* jeśli masz 3 obrazki */
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-track img {
+  width: 520px;
+  height: 320px; /* dopasuj do .carousel */
+  flex-shrink: 0;
+  object-fit: cover;
+  display: block;
+}
+
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+.form{
+  font-size: 22px;
+}
+
+a{
+  font-size: 22px;
+}
+
+@media (max-width: 600px) {
+  .carousel {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel-track {
+    width: 100%;
+  }
+
+  .carousel-track img {
+    width: 100%;
+    height: auto;
+  }
+
+  .carousel-btn {
+    padding: 10px;
+  }
+}
