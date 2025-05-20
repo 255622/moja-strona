@@ -5,7 +5,7 @@
   <link rel="icon" href="/moja-strona/assets/logo-OT5eLHqe.png" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Powiatowy Turniej Piłki Nożnej</title>
-  <link rel="stylesheet" crossorigin href="/moja-strona/assets/index-CFXfoPON.css">
+  <link rel="stylesheet" crossorigin href="/moja-strona/assets/index-CNkCXREx.css">
 </head>
 <body>
 
@@ -148,44 +148,75 @@
 </footer>
 
 <script>
-  let currentIndex = 0;
-  const track = document.querySelector('.carousel-track');
-  const images = document.querySelectorAll('.carousel-track img');
+  window.addEventListener('DOMContentLoaded', () => {
+    let currentIndex = 0;
+    const track = document.querySelector('.carousel-track');
+    const images = document.querySelectorAll('.carousel-track img');
 
-  function getImageWidth() {
-    return images[0].clientWidth;
-  }
-
-  function updateCarousel() {
-    const imageWidth = getImageWidth();
-    track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
-  }
-
-  function nextSlide() {
-    if (currentIndex < images.length - 1) {
-      currentIndex++;
-    } else {
-      currentIndex = 0;
+    function getImageWidth() {
+      return images[0].clientWidth;
     }
-    updateCarousel();
-  }
 
-  function prevSlide() {
-    if (currentIndex > 0) {
-      currentIndex--;
-    } else {
-      currentIndex = images.length - 1;
+    function updateCarousel() {
+      const imageWidth = getImageWidth();
+      track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
     }
+
+    function nextSlide() {
+      if (currentIndex < images.length - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = images.length - 1;
+      }
+      updateCarousel();
+    }
+
+    document.querySelector('.carousel-btn.next').addEventListener('click', nextSlide);
+    document.querySelector('.carousel-btn.prev').addEventListener('click', prevSlide);
+
+    setInterval(() => {
+      nextSlide();
+    }, 8000);
+
+    window.addEventListener('resize', updateCarousel);
     updateCarousel();
+
+    function openModal(id) {
+      document.getElementById(id + '-modal').style.display = 'flex';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id + '-modal').style.display = 'none';
+    }
+
+    window.openModal = openModal;
+    window.closeModal = closeModal;
+
+    document.querySelector('.footer-left a').addEventListener('click', e => {
+      e.preventDefault();
+      openModal('faq');
+    });
+  });window.onclick = function(event) {
+    const regModal = document.getElementById('regulamin-modal');
+    const faqModal = document.getElementById('faq-modal');
+    if (event.target === regModal) regModal.style.display = 'none';
+    if (event.target === faqModal) faqModal.style.display = 'none';
   }
-
-  setInterval(() => {
-    nextSlide();
-  }, 8000);
-
-  window.addEventListener('resize', updateCarousel);
-  window.addEventListener('load', updateCarousel);
-
+  function scrollToSection(id) {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 </script>
 
 
