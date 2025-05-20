@@ -1,5 +1,4 @@
 
-
 .navbar {
   padding: 1rem;
   display: flex;
@@ -17,7 +16,6 @@
   border-radius: 5px;
 }
 
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -30,21 +28,16 @@ body {
 }
 
 header, footer {
-  background-color: transparent;  /* brak koloru tła */
+  background-color: transparent;
   padding: 1rem;
-  color: white; /* tekst na biało, jeśli chcesz */
+  color: white;
 }
-
-
 
 main {
   padding: 0.5rem;
-  margin-top: 0.5rem; /* było 1rem – zmniejszamy */
+  margin-top: 0.5rem;
   text-align: center;
 }
-
-
-
 
 .title, h2, h1 {
   color: white;
@@ -52,10 +45,8 @@ main {
 }
 .title {
   font-size: 3.5rem;
-  margin-top: 0.5rem; /* dodaj to, jeśli nie ma */
+  margin-top: 0.5rem;
 }
-
-
 
 .description, .form, .schedule, .gallery, .team-counter {
   max-width: 700px;
@@ -68,10 +59,9 @@ main {
 
 .schedule table {
   width: 100%;
-  border-collapse: collapse; /* Zapobiega podwójnym odstępom między komórkami */
-  margin-top: 1rem; /* Dodaje przestrzeń między tabelą a nagłówkiem */
+  border-collapse: collapse;
+  margin-top: 1rem;
 }
-
 
 
 .checkbox-container label {
@@ -88,11 +78,10 @@ main {
   transform: scale(1.2);
 }
 
-
 .schedule th, .schedule td {
   text-align: center;
   padding: 10px;
-  border: 1px solid #ddd; /* Delikatna ramka wokół komórek */
+  border: 1px solid #ddd;
 }
 
 .schedule th {
@@ -105,7 +94,7 @@ main {
 }
 
 .schedule tr:nth-child(even) td {
-  background-color: #e0e0e0; /* Ulepszony kontrast na naprzemiennych wierszach */
+  background-color: #e0e0e0;
 }
 
 .form input, .form textarea {
@@ -131,9 +120,9 @@ main {
 }
 
 h2 {
-  display: inline-block; /* żeby tło obejmowało tylko tekst */
-  padding: 0.2rem 0.5rem; /* trochę przestrzeni wokół tekstu */
-  border-radius: 4px; /* opcjonalnie zaokrąglenie rogów */
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
 }
 
 .sponsors {
@@ -158,7 +147,6 @@ footer {
 .footer-left, .footer-right {
   flex: 1;
 }
-
 
 .footer-center {
   text-align: center;
@@ -209,7 +197,7 @@ button:hover {
 .carousel {
   position: relative;
   width: 520px;
-  height: 320px; /* lub dopasuj do proporcji zdjęcia */
+  height: 320px;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 8px;
@@ -217,18 +205,17 @@ button:hover {
 
 .carousel-track {
   display: flex;
-  width: calc(520px * 3); /* jeśli masz 3 obrazki */
+  width: calc(520px * 3);
   transition: transform 0.5s ease-in-out;
 }
 
 .carousel-track img {
   width: 520px;
-  height: 320px; /* dopasuj do .carousel */
+  height: 320px;
   flex-shrink: 0;
   object-fit: cover;
   display: block;
 }
-
 
 .carousel-btn {
   position: absolute;
@@ -262,17 +249,20 @@ a{
 
 @media (max-width: 600px) {
   .carousel {
-    width: 100%;
-    height: auto;
+    position: relative;
+    overflow: hidden;
+    max-width: 100vw;
   }
 
   .carousel-track {
-    width: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
   }
 
   .carousel-track img {
-    width: 100%;
-    height: auto;
+    width: 100vw;
+    flex-shrink: 0;
+    object-fit: cover;
   }
 
   .carousel-btn {

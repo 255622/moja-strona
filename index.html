@@ -2,6 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" href="logo.png" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Powiatowy Turniej Piłki Nożnej</title>
   <link rel="stylesheet" href="src/App.css" />
@@ -95,7 +96,6 @@
       <img src="zdj3.jpg" alt="Zdjęcie 3">
       <img src="zdj4.jpg" alt="Zdjęcie 4">
       <img src="zdj5.jpg" alt="Zdjęcie 5">
-      <!-- Dodaj więcej zdjęć jeśli chcesz -->
     </div>
     <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
   </div>
@@ -103,7 +103,6 @@
 
 </main>
 
-<!-- Modal: Regulamin -->
 <div id="regulamin-modal" class="modal">
   <div class="modal-content">
     <h2>Regulamin Turnieju</h2>
@@ -118,7 +117,6 @@
   </div>
 </div>
 
-<!-- Modal: FAQ -->
 <div id="faq-modal" class="modal">
   <div class="modal-content">
     <h2>FAQ</h2>
@@ -150,24 +148,16 @@
 </footer>
 
 <script>
-  function openModal(type) {
-    document.getElementById(type + '-modal').style.display = 'flex';
-  }
-
-  function closeModal(type) {
-    document.getElementById(type + '-modal').style.display = 'none';
-  }
-
-  function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-  }
-
   let currentIndex = 0;
   const track = document.querySelector('.carousel-track');
   const images = document.querySelectorAll('.carousel-track img');
-  const imageWidth = 520; // szerokość jednego obrazka w pikselach
+
+  function getImageWidth() {
+    return images[0].clientWidth;
+  }
 
   function updateCarousel() {
+    const imageWidth = getImageWidth();
     track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
   }
 
@@ -175,7 +165,6 @@
     if (currentIndex < images.length - 1) {
       currentIndex++;
     } else {
-      // jeśli na ostatnim slajdzie, przewiń do pierwszego
       currentIndex = 0;
     }
     updateCarousel();
@@ -185,16 +174,18 @@
     if (currentIndex > 0) {
       currentIndex--;
     } else {
-      // jeśli na pierwszym slajdzie, przewiń do ostatniego
       currentIndex = images.length - 1;
     }
     updateCarousel();
   }
 
-  // Automatyczne przewijanie co 8 sekund
   setInterval(() => {
     nextSlide();
   }, 8000);
+
+  window.addEventListener('resize', updateCarousel);
+  window.addEventListener('load', updateCarousel);
+
 </script>
 
 
